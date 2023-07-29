@@ -1,0 +1,371 @@
+<style type="text/css">
+  .btn-custom { 
+    color: #ffffff; 
+    background-color: #eb6228; 
+    border-color: #ea581b; 
+  } 
+
+  .card-header { 
+    color: #ffffff; 
+    background-color: #eb6228; 
+    border-color: #ea581b; 
+  } 
+
+  .btn-custom:hover, 
+  .btn-custom:focus, 
+  .btn-custom:active, 
+  .btn-custom.active, 
+  .open .dropdown-toggle.btn-custom { 
+    color: #ffffff; 
+    background-color: #eb6228; 
+    border-color: #E51DF0; 
+  } 
+
+  .btn-custom:active, 
+  .btn-custom.active, 
+  .open .dropdown-toggle.btn-custom { 
+    background-image: none; 
+  } 
+
+  .btn-custom.disabled, 
+  .btn-custom[disabled], 
+  fieldset[disabled] .btn-custom, 
+  .btn-custom.disabled:hover, 
+  .btn-custom[disabled]:hover, 
+  fieldset[disabled] .btn-custom:hover, 
+  .btn-custom.disabled:focus, 
+  .btn-custom[disabled]:focus, 
+  fieldset[disabled] .btn-custom:focus, 
+  .btn-custom.disabled:active, 
+  .btn-custom[disabled]:active, 
+  fieldset[disabled] .btn-custom:active, 
+  .btn-custom.disabled.active, 
+  .btn-custom[disabled].active, 
+  fieldset[disabled] .btn-custom.active { 
+    background-color: #BD1B77; 
+    border-color: #E51DF0; 
+  } 
+
+  .btn-custom .badge { 
+    color: #BD1B77; 
+    background-color: #ffffff; 
+  }
+
+  /*..........*/
+  .btn-custom2 { 
+    color: #ffffff; 
+    background-color: #eb6228; 
+    border-color: #ea581b; 
+  } 
+
+  .card-header { 
+    color: #ffffff; 
+    background-color: #eb6228; 
+    border-color: #ea581b; 
+  } 
+
+  .btn-custom2:hover, 
+  .btn-custom2:focus, 
+  .btn-custom2:active, 
+  .btn-custom2.active, 
+  .open .dropdown-toggle.btn-custom2 { 
+    color: #ffffff; 
+    background-color: #eb6228; 
+    border-color: #E51DF0; 
+  } 
+
+  .btn-custom2:active, 
+  .btn-custom2.active, 
+  .open .dropdown-toggle.btn-custom2 { 
+    background-image: none; 
+  } 
+
+  .btn-custom2.disabled, 
+  .btn-custom2[disabled], 
+  fieldset[disabled] .btn-custom2, 
+  .btn-custom2.disabled:hover, 
+  .btn-custom2[disabled]:hover, 
+  fieldset[disabled] .btn-custom2:hover, 
+  .btn-custom2.disabled:focus, 
+  .btn-custom2[disabled]:focus, 
+  fieldset[disabled] .btn-custom2:focus, 
+  .btn-custom2.disabled:active, 
+  .btn-custom2[disabled]:active, 
+  fieldset[disabled] .btn-custom2:active, 
+  .btn-custom2.disabled.active, 
+  .btn-custom2[disabled].active, 
+  fieldset[disabled] .btn-custom2.active { 
+    background-color: #BD1B77; 
+    border-color: #E51DF0; 
+  } 
+
+  .btn-custom2 .badge { 
+    color: #BD1B77; 
+    background-color: #ffffff; 
+  }
+</style>
+
+
+<style type="text/css">
+  .fileUpload1 {
+    position: relative;
+    overflow: hidden;
+    margin: 10px;
+  }
+  .fileUpload1 input.upload1 {
+    position: absolute;
+    top: 0;
+    right: 0;
+    margin: 0;
+    padding: 0;
+    font-size: 20px;
+    cursor: pointer;
+    opacity: 0;
+    filter: alpha(opacity=0);
+    background-color: #eb6228;
+  }
+</style>
+<!-- Content Wrapper. Contains page content -->
+<div class="content-wrapper">
+  <!-- Content Header (Page header) -->
+  <div class="content-header">
+    <div class="container-fluid">
+      <div class="row mb-2">
+        <div class="col-sm-6">
+        </div><!-- /.col -->
+        <div class="col-sm-6">
+          <ol class="breadcrumb float-sm-right">
+            <li class="breadcrumb-item"><a href="<?php echo base_url(); ?>">Home</a></li>
+            <li class="breadcrumb-item active">Tambah Resep</li>
+          </ol>
+        </div><!-- /.col -->
+      </div><!-- /.row -->
+    </div><!-- /.container-fluid -->
+  </div>
+  <!-- /.content-header -->
+
+  <!-- Main content -->
+  <section class="content">
+    <div class="container-fluid">
+      <!-- /.row -->
+      <div class="row">
+        <div class="col-md-12">
+          <div class="card card-default">
+            <div class="card-header">
+              <h3 class="card-title">Form Tambah Resep</h3>
+            </div>
+            <?php $recipe_id = $this->uri->segment(3); ?>
+            <form action="<?php echo base_url('admin/act_recipeimages/'.$recipe_id) ?>" method="POST" enctype="multipart/form-data">
+            <div class="card-body p-0">
+              <div class="bs-stepper">
+                
+                <div class="bs-stepper-header" role="tablist">
+                  <!-- your steps here -->
+                  
+                  <div class="step" data-target="#task-part">
+                    <button type="button" class="step-trigger" role="tab" aria-controls="task-part" id="task-part-trigger">
+                      <span class="bs-stepper-circle">5</span>
+                      <span class="bs-stepper-label">Cover Image</span>
+                    </button>
+                  </div>
+                </div>
+                <div class="bs-stepper-content">
+                  
+                  <div id="task-part" class="content" role="tabpanel" aria-labelledby="information-part-trigger">
+                    <div class="form-group">
+                      <label for="exampleInputFile">File Image</label>
+                      <div class="input-group">
+                        <div class="custom-file">
+                          <input type="file" name="cover_image" class="form-control" id="exampleInputFile" required>
+                          <input type="hidden" name="customer_id" value="<?php echo $recipe->customer_id; ?>">
+                          <!-- <label class="custom-file-label" for="exampleInputFile">Choose file</label> -->
+                        </div>
+                        <!-- <div class="input-group-append">
+                          <span class="input-group-text">Upload</span>
+                        </div> -->
+                      </div>
+                    </div>
+
+                    <div class="form-group">
+                      <label for="exampleInputFile">Catatan Tambahan</label>
+                      <textarea class="form-control" name="catatan" rows="5"></textarea>
+                    </div>
+                    <button type="submit" class="btn btn-success"><i class="fa fa-check"></i> Submit</button>
+                    <a href="<?php echo base_url('admin/listrecipe') ?>">
+                        <button type="button" class="btn btn-danger"><i class="fa fa-time"></i> Cancel</button>
+                    </a>
+                  </div>
+                </div>
+              </div>
+            </div>
+            <!-- /.card-body -->
+            <div class="card-footer">
+              <div class="row">
+                <div class="col-md-4">
+                </div>
+                <div class="col-md-4"></div>
+                <div class="col-md-4" align="right">
+                  
+                  
+                </div>
+              </div>
+                      
+              
+              </form>
+            </div>
+          </div>
+          <!-- /.card -->
+        </div>
+              
+      </div>
+      <!-- <input type="submit" class="btn btn-primary">  -->
+              
+              
+      <!-- /.row -->
+    </div>
+
+  </section>
+
+  <!-- jQuery -->
+  <script src="<?php echo base_url(); ?>assets/plugins/jquery/jquery.min.js"></script>
+  <!-- Token Field -->
+<script src="<?php echo base_url(); ?>assets/js/bootstrap-tokenfield.js"></script>
+
+  <script type="text/javascript">
+      // BS-Stepper Init
+      document.addEventListener('DOMContentLoaded', function () {
+        window.stepper = new Stepper(document.querySelector('.bs-stepper'))
+      })
+    </script>
+
+    <script>
+      function hanyaAngka(evt) {
+        var charCode = (evt.which) ? evt.which : event.keyCode
+        if (charCode > 31 && (charCode < 48 || charCode > 57))
+
+          return false;
+        return true;
+      }
+
+    </script>
+
+
+    <!-- JQUERY ADD RECIPE -->
+    <script type="text/javascript">
+      $(document).ready(function(){
+    var maxField = 10000; //Input fields increment limitation
+    var addButton = $('.add_button'); //Add button selector
+    var wrapper = $('.field_wrapper'); //Input field wrapper
+    var x = 1; //Initial field counter is 1
+    
+    
+    //Once remove button is clicked
+    $(wrapper).on('click', '.remove_button', function(e){
+      e.preventDefault();
+        $(this).parent('div').remove(); //Remove field html
+        x--; //Decrement field counter
+      });
+  });
+
+      function removeIngridient(x) {
+        $('#ingridients'+x).remove();
+      }
+
+      function addField(x='') {
+    var wrapper = $('#fieldWrapper'+x); //Input field wrapper
+
+    if (x!='') {
+        var fieldHTML = '<div class="row"><div class="col-sm-5"><div class="form-group"><input type="text" class="form-control" name ="title1'+x+'[]" placeholder="...."></div></div><div class="col-sm-5"><div class="form-group"><input type="text" class="form-control" name = "desc1'+x+'[]" placeholder="...."></div></div><a href="javascript:void(0);" class="remove_button"><button type = "button" class = "btn btn-custom"><i class = "fa fa-minus"></i></button></a></div>';
+    }
+    var x = 1; //Initial field counter is 1
+        //Check maximum number of input fields
+            $(wrapper).append(fieldHTML); //Add field html
+            x++; //Increment field counter
+  // $('#addField')
+}
+
+$(document).ready(function(){
+    var maxjum = 10000; //Input fields increment limitation
+    var addform = $('.addform'); //Add button selector
+    var wrapp = $('.field_wrapper1'); //Input field wrapper
+    var x = 1; //Initial field counter is 1
+    
+    //Once add button is clicked
+    $(addform).click(function(){
+        //Check maximum number of input fields
+        if(x < maxjum){ 
+            x++; //Increment field counter
+            var fieldHTMLs = '<div  id="ingridients'+x+'"><input type="hidden" name="i[]" value="'+x+'"><br><div class="ingridients"><div class="row"><div class="col-sm-5"><div class="form-group"><input type="text" name = "headtitle'+x+'" class="form-control" placeholder="Contoh : Tepung Krispi"></div></div><div class="col-sm-5"><div class="form-group"><button class = "btn btn-custom" onclick="removeIngridient('+x+')"><i class = "fa fa-minus"></i> Delete</button></div></div></div></div><div class="field_wrapper" id="fieldWrapper'+x+'"><div class="row"><div class="col-sm-5"><div class="form-group"><input type="text" name = "title1'+x+'[]" class="form-control" placeholder="ss1"></div></div><div class="col-sm-5"><div class="form-group"><input type="text" name = "desc1'+x+'[]" class="form-control" placeholder="ss2"></div></div><div class="col-sm-2"><div class="form-group"></div></div></div></div><div class="form-group"><button type="button" onclick="addField('+x+')" class="btn btn-custom btn-block">Tambah Ingridient Lainnya</button></div></div>'; //New input field html 
+            $(wrapp).append(fieldHTMLs); //Add field html
+          }
+        });
+    
+    //Once remove button is clicked
+    $(wrapp).on('click', '.remove_button', function(e){
+      e.preventDefault();
+        $(this).parent('div').remove(); //Remove field html
+        x--; //Decrement field counter
+      });
+  });
+
+// CLOSE ADD RECIPE
+
+// STEP JQUERY
+
+
+function addField_step(x='') {
+    var wrapperz = $('#fieldWrapperz'); //Input field wrapper
+var append = ''
+append+= '<div class="field_wrapperz">'
+append+= '  <div class="form-group">'
+append+= '    <label>File Step Resep</label>'
+append+= '    <div class="input-group">'
+append+= '      <div class="custom-file">'
+append+= '        <input type="file" name="userfile[]" class="custom-file-input" id="exampleInputFile">'
+append+= '        <label class="custom-file-label" for="exampleInputFile">Choose file</label>'
+append+= '      </div>'
+append+= '    <div class="input-group-append">'
+append+= '      <span class="input-group-text">Upload</span>'
+append+= '    </div>'
+append+= '    </div>'
+append+= '   </div><br>'
+append+= '  <div class="form-group">'
+append+= '    <textarea class="form-control" name="deskripsistep[]"></textarea>'
+append+= '  </div>'
+append+= '  <a href="javascript:void(0);" class="remove_buttonz"><button class = "btn btn-custom">'
+append+= '    <i class = "fa fa-minus"></i> Hapus Step</button><br><hr><br>'
+append+= '  </a>'
+append+= '</div>'
+append+= '</div>'
+    var x = 1; //Initial field counter is 1
+        //Check maximum number of input fields
+            $(wrapperz).append(append); //Add field html
+            x++; //Increment field counter
+  // $('#addField')
+
+  $(wrapperz).on('click', '.remove_buttonz', function(e){
+    e.preventDefault();
+        $(this).parent('div').remove(); //Remove field html
+        x--; //Decrement field counter
+      });
+}
+// CLOSE STEP JQUERY
+
+</script>
+<script type="text/javascript">
+  $('.select2').select2()
+  //Initialize Select2 Elements
+    $('.select2bs4').select2({
+      theme: 'bootstrap4'
+    })
+
+
+$('#tokenfield').tokenfield({
+  autocomplete: {
+    source: ['red','blue','green','yellow','violet','brown','purple','black','white'],
+    delay: 1
+  },
+  showAutocompleteOnFocus: true
+});
+
+</script>
